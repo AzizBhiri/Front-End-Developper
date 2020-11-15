@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<head>
+    <script>
+        $(document).ready(function() {
+            if ($('#nom').is(':empty')) {
+                alert("Erreur : Champs du Nom vide");
+                return false;
+            };
+            if ($('#cin').is(':empty')) {
+                alert("Erreur : Champs du CIN vide");
+                return false;
+            };
+            var $size = $('#cin').val().length;
+            console.log(size);
+            if ($(size) !== 8) {
+                alert("Erreur : Champs du CIN invalide");
+                return false;
+            }
+
+            $('#cin').each(function(){
+                if ($.isNumeric(($(this)))) return;
+                else {
+                    alert("Erreur : Champs du CIN invalide");
+                    return false;
+                }
+            });
+
+            if ($('#email').is(':empty')) {
+                alert("Erreur : Champs du Email vide");
+                return false;
+            }
+            if ($('#email').val().indexOf('@') == -1) {
+                alert("Erreur : Champs du Email invalide");
+                return false;
+            }
+
+            var $n = 0;
+            $('#formations').each(function (){
+                if ($(this).is(':selected')) {
+                    $(n) = $(n) + 1
+                };
+            });
+            if ($(n) == 0) {
+                alert("Pas de choix effectué");
+                return false;
+            }
+            if ($(n) > 2) {
+                alert("Choisir 2 choix au max");
+                return false;
+            }
+            alert("Inscription achevée");
+            return true;
+        });
+        $('#formbuilder').submit(function(){
+            return verifier();
+        });
+    </script>
+</head>
+
+<body style="padding: 5%;background-color:#FF1493;margin: 10% 20%; text-align:center; font-family: 'Courier New', Courier, monospace;border: 4px solid black;">
+    <h2><u>INSCRIPTION</u></h2><br>
+    <form id="formbuilder" onSubmit="return verifier();">
+
+        Nom et Prénom * : <input type="text" id="nom"> <br><br> CIN * : <input type="text" id="cin"><br><br> Adresse e-mail * : <input type="text" id="email"> <br><br> Niveau :
+        <input type="radio" name="radio" checked value="1"> Secondaire
+        <input type="radio" name="radio" value="2"> Universitaire
+        <input type="radio" name="radio" value="3"> Autre<br>
+        
+        <br> Module de formation :<br>
+        <select id="formations" multiple value="Microsoft Office">
+            <option>Microsoft Office</option>
+            <option value="Réseaux">Réseaux</option>
+            <option value="Developpement Web">Developpement Web</option>
+            <option value="Data Mining">Data Mining</option>
+        </select>
+        <br><br> 
+        (*) Champs obligatoires
+
+        <input type="submit" value="Envoyer"> <input type="reset" value="Annuler">
+    </form>
+</body>
+
+</html>

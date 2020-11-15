@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function Calcul() {
+            var operation = document.form['operation'].value;
+            var Res = eval(operation);
+            document.form['Res'].value = Res;
+            return Res;
+        }
+
+        function afficher() {
+            alert("Le résultat est :" + Calcul());
+        }
+    </script>
+    </head>
+
+    <body>
+        <form name="form">
+            <input type="text" name="operation">
+            <input type="button" value=" = " onclick="Calcul()">
+            <input type="text" name="Res"><br>
+
+            <input type="button" value=" 1 " onclick="document.form['operation'].value += '1'" />
+            <input type="button" value=" 2 " onclick="document.form['operation'].value += '2'" />
+            <input type="button" value=" 3 " onclick="document.form['operation'].value += '3'" />
+            <input type="button" value=" + " onclick="document.form['operation'].value += '+'" />
+            <br/>
+
+            <input type="button" value=" 4 " onclick="document.form['operation'].value += '4'" />
+            <input type="button" value=" 5 " onclick="document.form['operation'].value += '5'" />
+            <input type="button" value=" 6 " onclick="document.form['operation'].value += '6'" />
+            <input type="button" value=" - " onclick="document.form['operation'].value += '-'" />
+            </br>
+
+            <input type="button" value=" 7 " onclick="document.form['operation'].value += '7'" />
+            <input type="button" value=" 8 " onclick="document.form['operation'].value += '8'" />
+            <input type="button" value=" 9 " onclick="document.form['operation'].value += '9'" />
+            <input type="button" value=" x " onclick="document.form['operation'].value += '*'" />
+            </br>
+
+            <input type="button" value=" c " onclick="document.form['operation'].value = ''" />
+            <input type="button" value=" 0 " onclick="document.form['operation'].value += '0'" />
+            <input type="button" value=" / " onclick="document.form['operation'].value += '/'" />
+            </br>
+            <a href="" onclick="afficher()">
+                <h2>Calculer</h2>
+            </a>
+        </form>
+    </body>
+
+</html>

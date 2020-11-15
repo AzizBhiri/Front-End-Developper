@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<head>
+    <script>
+        function verifier() {
+            if (document.form.nom.value == "") {
+                alert("Erreur : Champs du Nom vide");
+                return false;
+            };
+            if (document.form.cin.value == "") {
+                alert("Erreur : Champs du CIN vide");
+                return false;
+            };
+            var size = document.form.cin.value.length;
+            console.log(size);
+            if (size != 8) {
+                alert("Erreur : Champs du CIN invalide");
+                return false;
+            }
+            for (i = 0; i < size; ++i) {
+                if (document.form.cin.value.charAt(i) > "0" || document.form.cin.value.charAt(i) < "9") continue;
+                else {
+                    alert("Erreur : Champs du CIN invalide");
+                    return false;
+                }
+            }
+
+            if (document.form.email.value == "") {
+                alert("Erreur : Champs du Email vide");
+                return false;
+            }
+            if (document.form.email.value.indexOf('@') == -1) {
+                alert("Erreur : Champs du Email invalide");
+                return false;
+            }
+            size = document.form.formations.options.length;
+            var n = 0;
+            for (i = 0; i < size; i++) {
+                if (document.form.formations[i].selected) {
+                    n += 1
+                };
+            }
+            if (n == 0) {
+                alert("Pas de choix effectué");
+                return false;
+            }
+            if (n > 2) {
+                alert("Choisir 2 choix au max");
+                return false;
+            }
+            alert("Inscription achevée");
+            return true;
+        }
+    </script>
+</head>
+
+<body style="padding: 5%;background-color:#FF1493;margin: 10% 20%; text-align:center; font-family: 'Courier New', Courier, monospace;border: 4px solid black;">
+    <h2><u>INSCRIPTION</u></h2><br>
+    <form name="form" onSubmit="return verifier()">
+
+        Nom et Prénom * : <input type="text" name="nom"> <br><br> CIN * : <input type="text" name="cin"><br><br> Adresse e-mail * : <input type="text" name="email"> <br><br> Niveau :
+        <input type="radio" name="radio" checked value="1"> Secondaire
+        <input type="radio" name="radio" value="2"> Universitaire
+        <input type="radio" name="radio" value="3"> Autre<br>
+        
+        <br> Module de formation :<br>
+        <select name="formations" multiple value="Microsoft Office">
+            <option>Microsoft Office</option>
+            <option value="Réseaux">Réseaux</option>
+            <option value="Developpement Web">Developpement Web</option>
+            <option value="Data Mining">Data Mining</option>
+        </select>
+        <br><br> 
+        (*) Champs obligatoires
+
+        <input type="submit" value="Envoyer"> <input type="reset" value="Annuler">
+    </form>
+</body>
+
+</html>

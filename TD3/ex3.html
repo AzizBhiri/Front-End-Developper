@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var nombre;
+        month = Number(prompt("Entrez le numero du mois", ""));
+        year = Number(prompt("Entrez l’année", ""));
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 12:
+                nombre = 31;
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                nombre = 30;
+                break;
+            case 2:
+                if (year % 4 == 0) nombre = 29;
+                else nombre = 28;
+                break;
+        }
+        alert("Le nombre de jours est : " + nombre);
+    </script>
+</body>
+
+</html>

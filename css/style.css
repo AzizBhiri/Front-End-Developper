@@ -16,7 +16,7 @@
 
 p.blue_box{
     background-color: #28b9ad;
-    width: 530px;
+    width: 610px;
     height: 40px;
     margin-top: -70px;
     margin-left: 160px;
@@ -25,7 +25,7 @@ p.blue_box{
 
 p.blue_box2{
     background-color: #28b9ad;
-    width: 300px;
+    width: 380px;
     height: 40px;
     margin-top: -56px;
     margin-left: 380px;
@@ -149,7 +149,7 @@ p.blue_footer{
     background-color: #28b9ad;
     width: 100%;
     height: 150px;
-    margin-top: 1000px;
+    margin-top: 200px;
     margin-left: -20px;
     border-radius: 4px; 
 }
